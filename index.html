@@ -18,6 +18,19 @@
 
   <body ng-controller="FirstCtrl">
     <h1 ng-model="name">{{name}}</h1>
+
+    <p ng-hide='notEven()'>This is even</p>
+    <p ng-show='isOdd()'>This is odd</p>
+    <p>Selected number is {{ selectedRadio }}</p>
+    <p ng-if='noneSelected()' >No number is selected</p>
+
+    <form>
+      <input type='radio' ng-model='selectedRadio' value='1'>
+      <input type='radio' ng-model='selectedRadio' value='2'>
+      <input type='radio' ng-model='selectedRadio' value='3'>
+      <input type='radio' ng-model='selectedRadio' value='4'>
+      <input type='radio' ng-model='selectedRadio' value='5'>
+    </form>
   </body>
 
 </html>
