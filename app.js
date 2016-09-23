@@ -35,3 +35,29 @@ app.directive("mainNav", function() {
     scope: {}
   };
 });
+
+app.directive("mainHeader", function() {
+  return {
+    templateUrl: "main-header.html",
+    restrict: "E",
+    transclude: true,
+    // scope: true,
+    link: function (scope) {
+      scope.mainHeader = 'Main Header';
+    }
+  };
+});
+
+app.directive("copyright", function() {
+  return {
+    templateUrl: "copyright.html",
+    restrict: "E",
+    transclude: true,
+    // scope: true,
+    link: function (scope) {
+      scope.copyright = 'Copyright';
+      scope.copyrightCompany = 'Viking Code School';
+      scope.copyrightYear = (new Date()).getFullYear();
+    }
+  };
+});

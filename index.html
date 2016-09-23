@@ -17,7 +17,8 @@
 
 
   <body ng-controller="FirstCtrl">
-    <h1 ng-model="name">{{name}}</h1>
+    <main-header>{{ mainHeader }}</main-header>
+    <!-- <h1 ng-model="name">{{name}}</h1> -->
 
     <p ng-hide='notEven()'>This is even</p>
     <p ng-show='isOdd()'>This is odd</p>
@@ -31,6 +32,8 @@
       <input type='radio' ng-model='selectedRadio' value='4'>
       <input type='radio' ng-model='selectedRadio' value='5'>
     </form>
+
+    <copyright>{{ copyright }} {{ copyrightCompany }} {{ copyrightYear }}</copyright>
   </body>
 
 </html>
