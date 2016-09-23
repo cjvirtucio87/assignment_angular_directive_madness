@@ -154,6 +154,8 @@ app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
 
   $scope.submitQuote = function () {
     $scope.quotes.push({author: $scope.author, quote: $scope.quote});
+    $scope.author = '';
+    $scope.quote = '';
     console.log($scope.quotes);
   };
 
@@ -177,5 +179,5 @@ app.directive("quotesIndex", function() {
     templateUrl: "listed_quotes.html",
     restrict: "A",
     scope: true
-  }
-})
+  };
+});
