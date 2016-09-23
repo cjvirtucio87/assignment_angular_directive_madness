@@ -1,0 +1,23 @@
+<html ng-app="DirectiveMadness" >
+  <head>
+    <title>Angular Widgets</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!--Lo-Dash -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.1/lodash.js"></script>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <nav>
+    <main-nav></main-nav>
+  </nav>
+
+
+  <body ng-controller="FirstCtrl">
+    <h1 ng-model="name">{{name}}</h1>
+  </body>
+
+</html>
