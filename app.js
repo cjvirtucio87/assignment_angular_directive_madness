@@ -61,3 +61,60 @@ app.directive("copyright", function() {
     }
   };
 });
+
+app.directive("colorize", function() {
+
+  function colorizeThis(scope, element, attributes) {
+
+    element.on("click", function() {
+        element.css("background", "green");
+        element.css("color", "red");
+    })
+  }
+
+  return {
+    restrict: "A",
+    scope: {
+      color: "@",
+      background: "@"
+    },
+    link: colorizeThis
+  }
+})
+
+
+app.directive("mouseEvents", function() {
+
+  function mevents(scope, element, attributes) {
+
+    element.on("click", function() {
+      element.text("Mouse has clicked");
+    })
+
+    element.on("mouseenter", function() {
+      element.text("Mouse has entered")
+    })
+
+    element.on("mouseleave", function() {
+      element.text("Mouse has left the building")
+    })
+
+    element.on("mouseup", function() {
+      element.text("Mouse is UP!")
+    })
+
+    element.on("mousedown", function() {
+      element.text("Mouse is DOWN!")
+    })
+
+    element.on("dblclick", function() {
+      element.text("Clicked TWICE!")
+    })
+
+  }
+
+  return {
+    restrict: "A",
+    link: mevents
+  }
+})
