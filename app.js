@@ -144,3 +144,37 @@ app.directive('mouseEventsDblClick', function() {
   };
 
 });
+
+
+//Quotes Controller
+app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
+
+  $scope.name = "Quotes!";
+  $scope.quotes = [];
+
+
+}]);
+
+
+app.directive("quoteForm", function() {
+  return{
+    template: ["<form>", 
+    'Author: <input ng-model="author" type="text"></br>',
+    'Message: <input ng-model="quote" type="text"></br>',
+    "<input type='submit'>",
+    '</form>'].join(""),
+    restrict: "E",
+    scope:true
+    link: function(scope, element, attributes) {
+      console.log(element)
+    }
+  }
+})
+
+app.directive("quotesIndex", function() {
+  return {
+    templateUrl: "listed_quotes.html",
+    restrict: "A",
+    scope: true
+  }
+})
