@@ -174,10 +174,12 @@ app.directive("quoteForm", function() {
   };
 });
 
-app.directive("quotesIndex", function() {
+app.directive("quoteRow", function() {
   return {
-    templateUrl: "listed_quotes.html",
+    templateUrl: "quote_row.html",
     restrict: "A",
-    scope: true
+    scope: {
+      quote: "="
+    }
   };
 });

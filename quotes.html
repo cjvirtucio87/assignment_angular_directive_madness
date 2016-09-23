@@ -12,8 +12,20 @@
 
   <body ng-controller="SecondCtrl">
     <quote-form></quote-form>
-
     <p>{{ author }}</p>
     <p>{{ quote }}</p>
+
+
+    <table>
+      <tr>
+        <th>Author</th>
+        <th>Quote</th>
+      </tr>
+
+      <tr quote-row ng-repeat="quote in quotes" quote="quote">
+      </tr>
+    </table>
+
+
   </body>
 </html>
