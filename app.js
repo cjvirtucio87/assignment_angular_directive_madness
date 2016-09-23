@@ -183,3 +183,13 @@ app.directive("quoteRow", function() {
     }
   };
 });
+
+app.directive("quotesIndex", function() {
+  return {
+    templateUrl: "quotes_index.html",
+    restrict: "E"
+    // scope: {
+    //   quote: "="
+    // }
+  };
+});
