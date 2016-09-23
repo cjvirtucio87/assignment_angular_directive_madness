@@ -148,15 +148,21 @@ app.directive('mouseEventsDblClick', function() {
 
 //Quotes Controller
 app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
-
-  $scope.name = "Quotes!";
+  $scope.id = 0;
   $scope.quotes = [];
 
   $scope.submitQuote = function () {
-    $scope.quotes.push({author: $scope.author, quote: $scope.quote});
+    var newQuote = ({id: $scope.id++, author: $scope.author, quote: $scope.quote});
+    $scope.quotes.push(newQuote);
     $scope.author = '';
     $scope.quote = '';
-    console.log($scope.quotes);
+  };
+
+  $scope.destroyQuote = function (id) {
+    console.log("You're clicking delete");
+    _.remove($scope.quotes,function(quote) {
+      return quote.id === id-1;
+    });
   };
 
 }]);
@@ -179,7 +185,22 @@ app.directive("quoteRow", function() {
     templateUrl: "quote_row.html",
     restrict: "A",
     scope: {
-      quote: "="
+      quote: "=",
+      destroy: "&"
+    }
+  };
+});
+
+app.directive("destroyRow", function() {
+  return {
+    templateUrl: "quote_row.html",
+    restrict: "A",
+    transclude: true,
+    scope: {
+      destroy: "&"
+    },
+    link: function(scope) {
+      $scope.destroyQuote(scope.id);
     }
   };
 });
