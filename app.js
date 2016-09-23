@@ -152,6 +152,10 @@ app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
   $scope.name = "Quotes!";
   $scope.quotes = [];
 
+  $scope.submitQuote = function () {
+    $scope.quotes.push({author: $scope.author, quote: $scope.quote});
+    console.log($scope.quotes);
+  };
 
 }]);
 
@@ -161,13 +165,10 @@ app.directive("quoteForm", function() {
     template: ["<form>",
     'Author: <input ng-model="author" type="text"></br>',
     'Message: <input ng-model="quote" type="text"></br>',
-    "<input type='submit'>",
+    "<input ng-click='submitQuote()' type='submit'>",
     '</form>'].join(""),
     restrict: "E",
     // scope:true,
-    link: function(scope, element, attributes) {
-      console.log(element);
-    }
   };
 });
 
