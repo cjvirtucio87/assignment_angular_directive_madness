@@ -18,7 +18,10 @@
   <body ng-controller="FirstCtrl">
     <main-header>{{ mainHeader }}</main-header>
     <!-- <h1 ng-model="name">{{name}}</h1> -->
-    <p mouse-events>I'm Clickable!</p>
+    <p mouse-events-up-down-click>I'm Clickable!</p>
+    <p mouse-events-hover>I'm Clickable!</p>
+    <p mouse-events-dbl-click>I'm Clickable!</p>
+
     <p ng-hide='notEven()'>This is even</p>
     <p ng-show='isOdd()'>This is odd</p>
     <p colorize>Selected number is {{ selectedRadio }}</p>

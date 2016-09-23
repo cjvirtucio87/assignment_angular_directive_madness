@@ -83,38 +83,64 @@ app.directive("colorize", function() {
 })
 
 
-app.directive("mouseEvents", function() {
+app.directive("mouseEventsUpDownClick", function() {
 
   function mevents(scope, element, attributes) {
 
     element.on("click", function() {
       element.text("Mouse has clicked");
-    })
-
-    element.on("mouseenter", function() {
-      element.text("Mouse has entered")
-    })
-
-    element.on("mouseleave", function() {
-      element.text("Mouse has left the building")
-    })
+    });
 
     element.on("mouseup", function() {
-      element.text("Mouse is UP!")
-    })
+      element.text("Mouse is UP!");
+    });
 
     element.on("mousedown", function() {
-      element.text("Mouse is DOWN!")
-    })
-
-    element.on("dblclick", function() {
-      element.text("Clicked TWICE!")
-    })
+      element.text("Mouse is DOWN!");
+    });
 
   }
 
   return {
     restrict: "A",
     link: mevents
+  };
+
+});
+
+app.directive('mouseEventsHover', function() {
+
+  function mevents(scope, element, attrs) {
+
+    element.on("mouseenter", function() {
+      element.text("Mouse has entered");
+    });
+
+    element.on("mouseleave", function() {
+      element.text("Mouse has left the building");
+    });
+
   }
-})
+
+  return {
+    restrict: "A",
+    link: mevents
+  };
+
+});
+
+app.directive('mouseEventsDblClick', function() {
+
+  function mevents(scope, element, attrs) {
+    element.on("dblclick", function() {
+      element.text("Clicked TWICE!");
+    });
+  }
+
+
+  return {
+    restrict: "A",
+    link: mevents
+  };
+
+});
