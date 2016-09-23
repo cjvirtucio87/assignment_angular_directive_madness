@@ -156,10 +156,16 @@ app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
   };
 
   $scope.submitQuote = function () {
-    var newQuote = ({author: $scope.author, quote: $scope.quote});
-    $scope.quotes.push(newQuote);
-    $scope.author = '';
-    $scope.quote = '';
+    if ($scope.quoteForm.$valid) {
+      var newQuote = ({author: $scope.author, quote: $scope.quote});
+      $scope.quotes.push(newQuote);
+      $scope.quoteForm.$setPristine();
+      $scope.quoteForm.$setUntouched();
+    }
+  };
+
+  $scope.validQuoteForm = function () {
+    return $scope.quoteForm.$valid;
   };
 
   $scope.destroyQuote = function (quote) {
@@ -172,10 +178,12 @@ app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
 
 app.directive("quoteForm", function() {
   return{
-    template: ["<form ng-submit='submitQuote()'>",
-    'Author: <input ng-model="author" type="text"></br>',
-    'Message: <input ng-model="quote" type="text"></br>',
-    "<input type='submit'>",
+    template: ["<form ng-submit='submitQuote()' name='quoteForm' novalidate>",
+    "Author: <input name='authorInput' ng-model=\"author\" type=\"text\" ng-required ng-minlength='2' ng-maxlength='32'></br>",
+    "Message: <input name='messageInput' ng-model=\"quote\" type=\"text\" ng-required ng-minlength='2'></br>",
+    "<input type='submit'>","<span ng-show='quoteForm.authorInput.$error.minlength' style='color:red'>Author name is too short</span>",
+    "<span ng-show='quoteForm.authorInput.$error.maxlength' style='color:red'>Author name is too long</span>",
+    "<span ng-show='quoteForm.messageInput.$error.minlength' style='color:red'>Message is too short</span>",
     '</form>'].join(""),
     restrict: "E",
     // scope:true,
