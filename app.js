@@ -151,20 +151,20 @@ app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
   $scope.id = 0;
   $scope.quotes = [];
 
+  $scope.empty = function () {
+    return $scope.quotes.length > 0;
+  };
+
   $scope.submitQuote = function () {
-    var newQuote = ({id: $scope.id++, author: $scope.author, quote: $scope.quote});
+    var newQuote = ({author: $scope.author, quote: $scope.quote});
     $scope.quotes.push(newQuote);
     $scope.author = '';
     $scope.quote = '';
   };
 
-  $scope.destroyQuote = function (id) {
-    console.log("You're clicking delete");
-    for(var i = 0; i < $scope.quotes.length; i++) {
-      if($scope.quotes[i].id === id) {
-        return $scope.quotes.splice(i,1);
-      }
-    }
+  $scope.destroyQuote = function (quote) {
+    var index = $scope.quotes.indexOf(quote);
+    $scope.quotes.splice(index, 1);
   };
 
 }]);
@@ -192,7 +192,6 @@ app.directive("quoteRow", function() {
     }
   };
 });
-
 
 app.directive("quotesIndex", function() {
   return {

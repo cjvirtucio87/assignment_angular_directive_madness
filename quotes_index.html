@@ -1,9 +1,9 @@
-<table>
+<table ng-if='empty()'>
   <tr>
     <th>Author</th>
     <th>Quote</th>
   </tr>
 
-  <tr quote-row ng-repeat="quote in quotes" quote="quote" destroy='destroyQuote(quote.id)'>
+  <tr quote-row ng-repeat="quote in quotes" quote="quote" destroy='destroyQuote(quote)'>
   </tr>
 </table>
