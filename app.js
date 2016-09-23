@@ -212,12 +212,15 @@ app.directive("quotesIndex", function() {
 app.controller('ScopesCtrl', ['$scope', '_', function ($scope, _) {
   $scope.twoWay = 'two way';
   $scope.oneWay = 'one way';
+  $scope.hello = function(name) {
+    alert("Hello " + name)
+  }
 }]);
 
 app.directive('isolated', function() {
 
   return {
-    templateUrl: '/js/templates/scopes/isolated.html',
+    templateUrl: 'isolated.html',
     restrict: 'AE',
     scope: {
       oneWay: '@',
@@ -225,8 +228,9 @@ app.directive('isolated', function() {
       sayHello: '&'
     },
     link: function (scope, element, attrs) {
-      scope.oneWay = 'One way has been modified.';
-      scope.twoWay = 'Two way has been modified.';
+      element.on("click", function() {
+        console.log(element)
+      })
     }
   };
 
