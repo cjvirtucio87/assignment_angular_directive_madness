@@ -160,9 +160,11 @@ app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
 
   $scope.destroyQuote = function (id) {
     console.log("You're clicking delete");
-    _.remove($scope.quotes,function(quote) {
-      return quote.id === id-1;
-    });
+    for(var i = 0; i < $scope.quotes.length; i++) {
+      if($scope.quotes[i].id === id) {
+        return $scope.quotes.splice(i,1);
+      }
+    }
   };
 
 }]);
@@ -191,26 +193,10 @@ app.directive("quoteRow", function() {
   };
 });
 
-app.directive("destroyRow", function() {
-  return {
-    templateUrl: "quote_row.html",
-    restrict: "A",
-    transclude: true,
-    scope: {
-      destroy: "&"
-    },
-    link: function(scope) {
-      $scope.destroyQuote(scope.id);
-    }
-  };
-});
 
 app.directive("quotesIndex", function() {
   return {
     templateUrl: "quotes_index.html",
     restrict: "E"
-    // scope: {
-    //   quote: "="
-    // }
   };
 });
