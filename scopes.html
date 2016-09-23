@@ -1,0 +1,34 @@
+<html ng-app="DirectiveMadness" >
+  <head>
+    <title>Directives!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!--Lo-Dash -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.1/lodash.js"></script>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <nav>
+    <main-nav></main-nav>
+  </nav>
+
+
+  <body ng-controller="ScopesCtrl">
+    <main-header>{{ mainHeader }}</main-header>
+
+    <label>
+      One Way
+      <input type='text' ng-model='oneWay'>
+    </label>
+
+    <label>
+      Two Way
+      <input type='text' ng-model='twoWay'>
+    </label>
+
+    <copyright>{{ copyright }} {{ copyrightCompany }} {{ copyrightYear }}</copyright>
+  </body>
+
+</html>

@@ -207,3 +207,27 @@ app.directive("quotesIndex", function() {
     restrict: "E"
   };
 });
+
+// Isolate Scope
+app.controller('ScopesCtrl', ['$scope', '_', function ($scope, _) {
+  $scope.twoWay = 'two way';
+  $scope.oneWay = 'one way';
+}]);
+
+app.directive('isolated', function() {
+
+  return {
+    templateUrl: '/js/templates/scopes/isolated.html',
+    restrict: 'AE',
+    scope: {
+      oneWay: '@',
+      twoWay: '=',
+      sayHello: '&'
+    },
+    link: function (scope, element, attrs) {
+      scope.oneWay = 'One way has been modified.';
+      scope.twoWay = 'Two way has been modified.';
+    }
+  };
+
+});
