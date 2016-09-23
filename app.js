@@ -158,18 +158,18 @@ app.controller("SecondCtrl", ["$scope", "_", function($scope, _ ) {
 
 app.directive("quoteForm", function() {
   return{
-    template: ["<form>", 
+    template: ["<form>",
     'Author: <input ng-model="author" type="text"></br>',
     'Message: <input ng-model="quote" type="text"></br>',
     "<input type='submit'>",
     '</form>'].join(""),
     restrict: "E",
-    scope:true
+    // scope:true,
     link: function(scope, element, attributes) {
-      console.log(element)
+      console.log(element);
     }
-  }
-})
+  };
+});
 
 app.directive("quotesIndex", function() {
   return {
