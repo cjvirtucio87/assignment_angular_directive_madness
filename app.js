@@ -69,7 +69,7 @@ app.directive("colorize", function() {
     element.on("click", function() {
         element.css("background", "green");
         element.css("color", "red");
-    })
+    });
   }
 
   return {
@@ -79,8 +79,8 @@ app.directive("colorize", function() {
       background: "@"
     },
     link: colorizeThis
-  }
-})
+  };
+});
 
 
 app.directive("mouseEventsUpDownClick", function() {
@@ -213,8 +213,8 @@ app.controller('ScopesCtrl', ['$scope', '_', function ($scope, _) {
   $scope.twoWay = 'two way';
   $scope.oneWay = 'one way';
   $scope.hello = function(name) {
-    alert("Hello " + name)
-  }
+    alert("Hello " + name);
+  };
 }]);
 
 app.directive('isolated', function() {
@@ -227,10 +227,9 @@ app.directive('isolated', function() {
       twoWay: '=',
       sayHello: '&'
     },
-    link: function (scope, element, attrs) {
-      element.on("click", function() {
-        console.log(element)
-      })
+    link: function (scope) {
+      var something = scope.sayHello;
+      console.log(scope.oneWay);
     }
   };
 

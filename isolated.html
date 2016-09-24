@@ -1,14 +1,14 @@
 <label>
   One Way
-  <input type='text' ng-model='oneWay'>
-</label>
+  <input type='text' ng-model='oneWay'><br>
+</label><br>
 
 <label>
   Two Way
-  <input type='text' ng-model='twoWay'>
-</label>
+  <input type='text' ng-model='twoWay'><br>
+</label><br>
 
-<form name="nameForm" >
-  <input name="personsName" type="text">
-  <input ng-click="hello(nameForm.personsName)" type="submit">
-</form>
+<form name="nameForm" ng-submit="sayHello()">
+  <input name="name" type="text"><br>
+  <input type="submit"><br>
+</form><br>
