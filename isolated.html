@@ -8,7 +8,12 @@
   <input type='text' ng-model='twoWay'><br>
 </label><br>
 
-<form name="nameForm" ng-submit="sayHello()">
-  <input name="name" type="text"><br>
+<!-- You need a function's signature and parse it. -->
+<!-- You need to define the name of the function and analyze the parameters. -->
+<!-- You need to pass an object to tell Angular -->
+<!-- that the value of nameFromForm is personName.  -->
+<!-- You can't just pass in a callback the way you would in Javascript. -->
+<form name="nameForm" ng-submit="sayHello({nameFromForm: personName})">
+  <input ng-model='personName' name="name" type="text"><br>
   <input type="submit"><br>
 </form><br>
